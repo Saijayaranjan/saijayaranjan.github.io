@@ -63,7 +63,7 @@ export function ProfileCard({
         "--pointer-from-left": `${percentX / 100}`,
         "--rotate-x": `${-((centerX / 5) * tiltFactor).toFixed(3)}deg`,
         "--rotate-y": `${((centerY / 4) * tiltFactor).toFixed(3)}deg`,
-        "--card-opacity": subtle ? "0.8" : "1",
+        "--card-opacity": subtle ? "0.3" : "0.5",
       }
 
       Object.entries(properties).forEach(([property, value]) => {
@@ -135,7 +135,7 @@ export function ProfileCard({
     if (!card || !wrap) return
 
     // Initial setup
-    wrap.style.setProperty("--card-opacity", subtle ? "0.8" : "1")
+    wrap.style.setProperty("--card-opacity", subtle ? "0.3" : "0.5")
 
     if (subtle) {
       wrap.classList.add("subtle")
@@ -159,7 +159,7 @@ export function ProfileCard({
       style={
         {
           "--behind-gradient":
-            "radial-gradient(farthest-side circle at var(--pointer-x) var(--pointer-y),hsla(266,100%,90%,var(--card-opacity)) 4%,hsla(266,50%,80%,calc(var(--card-opacity)*0.75)) 10%,hsla(266,25%,70%,calc(var(--card-opacity)*0.5)) 50%,hsla(266,0%,60%,0) 100%),radial-gradient(35% 52% at 55% 20%,#00ffaac4 0%,#073aff00 100%),radial-gradient(100% 100% at 50% 50%,#00c1ffff 1%,#073aff00 76%),conic-gradient(from 124deg at 50% 50%,#c137ffff 0%,#07c6ffff 40%,#07c6ffff 60%,#c137ffff 100%)",
+            "radial-gradient(farthest-side circle at var(--pointer-x) var(--pointer-y),hsla(266,40%,70%,var(--card-opacity)) 4%,hsla(266,30%,60%,calc(var(--card-opacity)*0.6)) 10%,hsla(266,20%,50%,calc(var(--card-opacity)*0.3)) 50%,hsla(266,0%,40%,0) 100%),radial-gradient(35% 52% at 55% 20%,#00ffaa44 0%,#073aff00 100%),radial-gradient(100% 100% at 50% 50%,#00c1ff66 1%,#073aff00 76%),conic-gradient(from 124deg at 50% 50%,#c137ff66 0%,#07c6ff66 40%,#07c6ff66 60%,#c137ff66 100%)",
           "--inner-gradient": "linear-gradient(145deg,#60496e8c 0%,#71C4FF44 100%)",
         } as React.CSSProperties
       }

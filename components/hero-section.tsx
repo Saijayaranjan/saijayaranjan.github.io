@@ -135,7 +135,7 @@ export function HeroSection() {
             name="Sai Srikanth"
             title="Computer Science Student"
             handle="saijayaranjan"
-            status="SRM IST, 2028"
+            status="SRMIST, 2028"
             contactText="Contact Me"
             avatarUrl="/profile-avatar-3d.png"
             showUserInfo={true}
