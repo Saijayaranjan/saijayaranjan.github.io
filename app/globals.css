@@ -1,0 +1,188 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 4%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 6%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 6%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 217 32% 17%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 32% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 217 32% 17%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 32% 17%;
+    --input: 217 32% 17%;
+    --ring: 224 76% 48%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Typography enhancements */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply tracking-tight font-semibold;
+}
+
+p {
+  @apply leading-relaxed text-muted-foreground;
+}
+
+/* Custom animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
+}
+
+/* Text selection */
+::selection {
+  background-color: hsl(var(--primary) / 0.2);
+  color: inherit;
+}
+
+/* Text glow effect - VERY LIGHT */
+.text-glow {
+  text-shadow: 0 0 5px rgba(59, 130, 246, 0.2), 0 0 10px rgba(59, 130, 246, 0.1);
+}
+
+.text-glow-white {
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.2), 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.text-glow-blue {
+  text-shadow: 0 0 5px rgba(59, 130, 246, 0.2), 0 0 10px rgba(59, 130, 246, 0.1);
+}
+
+/* Section styling */
+.section-container {
+  @apply container py-16 md:py-24 lg:py-32;
+}
+
+.section-title {
+  @apply text-3xl font-bold leading-tight sm:text-4xl md:text-5xl mb-4 text-glow-blue;
+}
+
+/* Fixed the spacing issue in the section-description class */
+.section-description {
+  max-width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  color: hsl(var(--muted-foreground));
+  margin-bottom: 3rem;
+}
+
+/* Fixed the spacing issue in the card-hover class */
+.card-hover {
+  transition-property: all;
+  transition-duration: 300ms;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Button styling */
+.primary-button {
+  @apply bg-primary hover:bg-primary/90 text-white rounded-md px-4 py-2 transition-all;
+}
+
+.secondary-button {
+  @apply bg-secondary hover:bg-secondary/90 text-white rounded-md px-4 py-2 transition-all;
+}
+
+/* Responsive container */
+.responsive-container {
+  @apply container mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* Star border button customization */
+.star-border-container .inner-content {
+  padding: 0;
+  background: transparent;
+  border: none;
+}
+
+.button-wrapper {
+  display: inline-block;
+}
+
+/* Professional button styles */
+.professional-button {
+  @apply rounded-md px-4 py-2 font-medium transition-all duration-200 flex items-center justify-center;
+}
+
+.professional-button-primary {
+  @apply bg-primary text-white hover:bg-primary/90 shadow-md hover:shadow-lg;
+}
+
+.professional-button-outline {
+  @apply border border-primary/20 bg-primary/5 text-primary hover:bg-primary/10 shadow-sm hover:shadow-md;
+}

@@ -1,0 +1,87 @@
+.star-border-container {
+  display: inline-block;
+  padding: 1px 0;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.border-gradient-bottom {
+  position: absolute;
+  width: 300%;
+  height: 50%;
+  /* Increased opacity from 0.4 to 0.6 for better visibility */
+  opacity: 0.6;
+  bottom: -11px;
+  right: -250%;
+  border-radius: 50%;
+  animation: star-movement-bottom linear infinite alternate;
+  z-index: 0;
+}
+
+.border-gradient-top {
+  position: absolute;
+  /* Increased opacity from 0.4 to 0.6 for better visibility */
+  opacity: 0.6;
+  width: 300%;
+  height: 50%;
+  top: -10px;
+  left: -250%;
+  border-radius: 50%;
+  animation: star-movement-top linear infinite alternate;
+  z-index: 0;
+}
+
+.inner-content {
+  position: relative;
+  border: 1px solid #222;
+  background: transparent;
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  padding: 0;
+  border-radius: 8px;
+  z-index: 1;
+}
+
+@keyframes star-movement-bottom {
+  0% {
+    transform: translate(0%, 0%);
+    /* Increased opacity from 0.4 to 0.6 for better visibility */
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate(-100%, 0%);
+    opacity: 0;
+  }
+}
+
+@keyframes star-movement-top {
+  0% {
+    transform: translate(0%, 0%);
+    /* Increased opacity from 0.4 to 0.6 for better visibility */
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate(100%, 0%);
+    opacity: 0;
+  }
+}
+
+/* Custom button styling */
+.resume-button {
+  border-radius: 8px !important;
+  padding: 8px 16px !important;
+  height: auto !important;
+  min-width: 120px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.star-border-container .inner-content {
+  border: none;
+}
+
+.button-wrapper {
+  display: inline-block;
+}

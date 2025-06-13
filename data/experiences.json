@@ -1,0 +1,23 @@
+[
+  {
+    "title": "Test",
+    "company": "Test",
+    "logo": "/logos/techanalytics.svg",
+    "date": "May 2023 - Aug 2023",
+    "description": "testing my test",
+    "skills": [
+      {
+        "name": "Python",
+        "logo": "/logos/python.svg"
+      },
+      {
+        "name": "SQL",
+        "logo": "/logos/sql.svg"
+      },
+      {
+        "name": "Tableau",
+        "logo": "/logos/tableau.svg"
+      }
+    ]
+  }
+]
