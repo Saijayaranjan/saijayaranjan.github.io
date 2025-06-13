@@ -2,7 +2,7 @@
   {
     "title": "PortalX",
     "description": "Academic management tool for SRM University students. Track attendance, view marks, manage courses, and access timetables. Not affiliated with SRM University.",
-    "image": "../../images/portalx.png",
+    "image": "https://github.com/Saijayaranjan/saijayaranjan.github.io/blob/main/images/portalx.png?raw=true",
     "technologies": ["React", "Next.js", "Node.js", "Supabase"],
     "githubUrl": "https://github.com/Saijayaranjan/Portalx",
     "demoUrl": "https://srmportalx.vercel.app/"
