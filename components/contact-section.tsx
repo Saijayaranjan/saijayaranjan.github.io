@@ -107,7 +107,7 @@ export function ContactSection() {
         </div>
 
         <motion.form
-          className="space-y-5 p-6 rounded-lg border border-border/50 bg-card/50 backdrop-blur-sm"
+          className="space-y-5 p-6 rounded-lg border-0 bg-transparent hover:border hover:border-border/50 hover:bg-card/50 hover:backdrop-blur-sm transition-all duration-300"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.3 }}

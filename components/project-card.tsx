@@ -22,7 +22,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       viewport={{ once: true, margin: "-50px" }}
       className="card-hover"
     >
-      <Card className="overflow-hidden h-full flex flex-col border border-border/50 bg-card/50 backdrop-blur-sm">
+      <Card className="overflow-hidden h-full flex flex-col border-0 bg-transparent hover:border hover:border-border/50 hover:bg-card/50 hover:backdrop-blur-sm transition-all duration-300">
         <div className="aspect-video w-full overflow-hidden bg-muted relative">
           <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }} className="h-full w-full">
             <Image

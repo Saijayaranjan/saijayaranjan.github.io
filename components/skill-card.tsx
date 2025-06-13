@@ -12,7 +12,7 @@ interface SkillCardProps {
 export function SkillCard({ skill, index }: SkillCardProps) {
   return (
     <motion.div
-      className="flex flex-col items-center gap-3 p-4 rounded-lg border border-border/50 bg-card/50 backdrop-blur-sm hover:border-primary/20 hover:bg-primary/5 transition-all duration-300"
+      className="flex flex-col items-center gap-3 p-4 rounded-lg border-0 bg-transparent hover:border hover:border-border/50 hover:bg-card/50 hover:backdrop-blur-sm hover:border-primary/20 hover:bg-primary/5 transition-all duration-300"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.05 }}
