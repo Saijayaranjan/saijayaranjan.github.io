@@ -137,7 +137,7 @@ export function HeroSection() {
             handle="saijayaranjan"
             status="SRM IST, 2028"
             contactText="Contact Me"
-            avatarUrl="/placeholder.svg?height=400&width=400"
+            avatarUrl="/profile-avatar-3d.png"
             showUserInfo={true}
             enableTilt={true}
             subtle={true}

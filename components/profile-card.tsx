@@ -23,7 +23,7 @@ export function ProfileCard({
   name = "Sai Srikanth",
   title = "Computer Science Student",
   handle = "saijayaranjan",
-  status = "SRM IST, 2028",
+  status = "SRM, 2028",
   contactText = "Contact Me",
   showUserInfo = true,
   enableTilt = true,
