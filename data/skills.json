@@ -1,31 +1,7 @@
 [
   {
-    "name": "Python",
-    "logo": "/logos/python.svg"
-  },
-  {
-    "name": "R",
-    "logo": "/logos/r.svg"
-  },
-  {
     "name": "SQL",
     "logo": "/logos/sql.svg"
-  },
-  {
-    "name": "Hadoop",
-    "logo": "/logos/hadoop.svg"
-  },
-  {
-    "name": "Spark",
-    "logo": "/logos/spark.svg"
-  },
-  {
-    "name": "TensorFlow",
-    "logo": "/logos/tensorflow.svg"
-  },
-  {
-    "name": "PyTorch",
-    "logo": "/logos/pytorch.svg"
   },
   {
     "name": "JavaScript",
@@ -40,23 +16,7 @@
     "logo": "/logos/nodejs.svg"
   },
   {
-    "name": "MongoDB",
-    "logo": "/logos/mongodb.svg"
-  },
-  {
     "name": "Git",
     "logo": "/logos/git.svg"
   },
-  {
-    "name": "Docker",
-    "logo": "/logos/docker.svg"
-  },
-  {
-    "name": "AWS",
-    "logo": "/logos/aws.svg"
-  },
-  {
-    "name": "Tableau",
-    "logo": "/logos/tableau.svg"
-  }
 ]
