@@ -14,5 +14,13 @@
     "technologies": ["React", "Next.js", "Node.js", "Supabase","Firebase"],
     "githubUrl": "https://github.com/Saijayaranjan/Refoodify",
     "demoUrl": "https://refoodify.netlify.app/"
+  },
+  {
+    "title": "Among the space",
+    "description": "",
+    "image": "https://github.com/Saijayaranjan/among-the-space/blob/main/homepage.png?raw=true",
+    "technologies": ["React", "Next.js", "Node.js", "Supabase","Firebase"],
+    "githubUrl": "https://github.com/Saijayaranjan/among-the-space",
+    "demoUrl": "https://among-the-space.vercel.app/"
   }
 ]
