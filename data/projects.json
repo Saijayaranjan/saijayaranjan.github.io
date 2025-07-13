@@ -10,7 +10,7 @@
   {
     "title": "Refoodify",
     "description": "AI-powered food waste management platform that transforms leftovers into valuable resources through smart analysis, gamification, and community engagement. Built during a hackathon by Team GitHappens.",
-    "image": "",
+    "image": "https://github.com/Saijayaranjan/refoodify/blob/main/app/homepage.png?raw=true",
     "technologies": ["React", "Next.js", "Node.js", "Supabase","Firebase"],
     "githubUrl": "https://github.com/Saijayaranjan/Refoodify",
     "demoUrl": "https://refoodify.netlify.app/"
