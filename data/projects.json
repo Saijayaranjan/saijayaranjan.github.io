@@ -6,5 +6,13 @@
     "technologies": ["React", "Next.js", "Node.js", "Supabase"],
     "githubUrl": "https://github.com/Saijayaranjan/Portalx",
     "demoUrl": "https://srmportalx.vercel.app/"
+  },
+  {
+    "title": "Refoodify",
+    "description": "AI-powered food waste management platform that transforms leftovers into valuable resources through smart analysis, gamification, and community engagement. Built during a hackathon by Team GitHappens.",
+    "image": "",
+    "technologies": ["React", "Next.js", "Node.js", "Supabase","Firebase"],
+    "githubUrl": "https://github.com/Saijayaranjan/Refoodify",
+    "demoUrl": "https://refoodify.netlify.app/"
   }
 ]
