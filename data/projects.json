@@ -17,7 +17,7 @@
   },
   {
     "title": "Among the space",
-    "description": "",
+    "description": "Interactive space passport generator that lets users create and download futuristic IDs with a cosmic theme. Built with React and Tailwind by Team GitHappens during a hackathon.",
     "image": "https://github.com/Saijayaranjan/among-the-space/blob/main/homepage.png?raw=true",
     "technologies": ["React", "Next.js", "Node.js", "Supabase","Firebase"],
     "githubUrl": "https://github.com/Saijayaranjan/among-the-space",
