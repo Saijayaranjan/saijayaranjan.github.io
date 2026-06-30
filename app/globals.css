@@ -4,40 +4,36 @@
 
 @layer base {
   :root {
-    /* Deep space dark theme */
-    --background: 230 40% 4%;
-    --foreground: 210 40% 98%;
+    /* Extreme minimal dark theme - Swiss 2.0 */
+    --background: 0 0% 4%;       /* #0A0A0A */
+    --foreground: 0 0% 100%;     /* #FFFFFF */
+    
+    --card: 0 0% 6%;             /* #0F0F0F */
+    --card-foreground: 0 0% 100%;
 
-    --card: 230 35% 7%;
-    --card-foreground: 210 40% 98%;
+    --popover: 0 0% 6%;
+    --popover-foreground: 0 0% 100%;
 
-    --popover: 230 35% 7%;
-    --popover-foreground: 210 40% 98%;
+    --primary: 0 0% 100%;        /* Crisp white primary */
+    --primary-foreground: 0 0% 4%;
 
-    /* Electric blue primary with cyan + violet accents */
-    --primary: 217 91% 60%;
-    --primary-foreground: 210 40% 98%;
+    --secondary: 0 0% 10%;       /* Subtle gray */
+    --secondary-foreground: 0 0% 100%;
 
-    --accent-cyan: 189 94% 55%;
-    --accent-violet: 258 90% 66%;
+    --muted: 0 0% 12%;           
+    --muted-foreground: 0 0% 65%; /* Soft gray for secondary text */
 
-    --secondary: 222 30% 14%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 222 25% 12%;
-    --muted-foreground: 215 20% 65%;
-
-    --accent: 222 30% 14%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 0 0% 12%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62% 40%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 220 25% 16%;
-    --input: 220 25% 16%;
-    --ring: 217 91% 60%;
+    --border: 0 0% 13%;          /* Very subtle grid lines */
+    --input: 0 0% 13%;
+    --ring: 0 0% 100%;
 
-    --radius: 0.85rem;
+    --radius: 0px;               /* Sharp edges for swiss modernism */
   }
 }
 
@@ -46,8 +42,13 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground tracking-tight;
     font-feature-settings: "rlig" 1, "calt" 1;
+    background-image: 
+      linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 100px 100px;
+    background-position: center top;
   }
   html {
     scroll-behavior: smooth;
@@ -61,122 +62,76 @@ h3,
 h4,
 h5,
 h6 {
-  @apply font-heading tracking-tight font-semibold;
+  @apply font-heading tracking-tighter font-semibold;
 }
 
 p {
-  @apply leading-relaxed;
+  @apply leading-relaxed tracking-tight;
 }
 
 /* ---------- Reusable design utilities ---------- */
 @layer components {
-  /* Section wrapper */
   .section-container {
     @apply container relative py-20 md:py-28 lg:py-32;
   }
 
-  /* Mono eyebrow / kicker label */
   .eyebrow {
-    @apply inline-flex items-center gap-2 font-mono text-xs font-medium uppercase tracking-[0.2em] text-primary;
+    @apply inline-flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-muted-foreground;
   }
 
   .eyebrow::before {
     content: "";
-    @apply h-px w-6 bg-primary;
-  }
-
-  /* Solid accent text */
-  .gradient-text {
-    color: hsl(var(--primary));
+    @apply h-px w-6 bg-border;
   }
 
   .section-title {
-    @apply font-heading text-3xl font-bold leading-[1.1] tracking-tight sm:text-4xl md:text-5xl;
+    @apply font-heading text-4xl font-bold leading-[1.1] tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl;
   }
 
   .section-description {
-    @apply mx-auto mt-4 max-w-2xl text-base text-muted-foreground sm:text-lg;
+    @apply mt-6 max-w-2xl text-lg text-muted-foreground sm:text-xl font-light tracking-tight;
   }
 
-  /* Glass card with gradient hover border */
+  /* Sharp minimalist card */
   .glass-card {
-    @apply relative rounded-2xl border border-white/[0.06] bg-white/[0.02] backdrop-blur-sm transition-all duration-300;
+    @apply relative border border-border bg-card p-6 transition-colors duration-200;
   }
 
   .glass-card:hover {
-    @apply border-primary/30 bg-white/[0.04];
-    box-shadow: 0 0 0 1px hsl(var(--primary) / 0.1), 0 20px 50px -20px hsl(var(--primary) / 0.25);
+    @apply border-muted-foreground/30 bg-secondary;
   }
 
   /* Buttons */
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-primary/25 transition-all duration-300 hover:bg-primary/90 hover:shadow-primary/40;
+    @apply inline-flex items-center justify-center gap-2 bg-primary px-8 py-4 text-sm font-semibold text-primary-foreground transition-all hover:bg-white/90;
   }
 
   .btn-outline {
-    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/[0.03] px-6 py-3 text-sm font-semibold text-foreground backdrop-blur-sm transition-all duration-300 hover:border-primary/40 hover:bg-primary/10 hover:text-primary;
+    @apply inline-flex items-center justify-center gap-2 border border-border bg-transparent px-8 py-4 text-sm font-medium text-foreground transition-all hover:bg-secondary;
   }
 
-  /* Social icon button */
   .icon-btn {
-    @apply flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.02] text-muted-foreground transition-all duration-300 hover:border-primary/40 hover:bg-primary/10 hover:text-primary;
+    @apply flex h-12 w-12 items-center justify-center border border-border bg-transparent text-muted-foreground transition-all hover:border-foreground hover:text-foreground;
   }
-}
-
-/* ---------- Effects ---------- */
-.text-glow {
-  text-shadow: 0 0 20px hsl(var(--primary) / 0.35);
-}
-
-.aurora-blob {
-  @apply pointer-events-none absolute rounded-full blur-[100px];
-}
-
-/* Accent border highlight on hover (solid color) */
-.gradient-border {
-  position: relative;
-}
-.gradient-border::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1px;
-  background: hsl(var(--primary) / 0.45);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-.gradient-border:hover::before {
-  opacity: 1;
-}
-
-/* Marquee mask edges */
-.marquee-mask {
-  -webkit-mask: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
-  mask: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
 }
 
 /* ---------- Scrollbar ---------- */
 ::-webkit-scrollbar {
-  width: 9px;
+  width: 8px;
 }
 ::-webkit-scrollbar-track {
   background: hsl(var(--background));
 }
 ::-webkit-scrollbar-thumb {
-  background: hsl(var(--primary) / 0.5);
-  border-radius: 999px;
+  background: hsl(var(--muted-foreground) / 0.3);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--primary) / 0.8);
+  background: hsl(var(--muted-foreground) / 0.8);
 }
 
 ::selection {
-  background-color: hsl(var(--primary) / 0.3);
-  color: hsl(var(--foreground));
+  background-color: hsl(var(--foreground));
+  color: hsl(var(--background));
 }
 
 @media (prefers-reduced-motion: reduce) {

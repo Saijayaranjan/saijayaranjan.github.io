@@ -2,8 +2,6 @@
 
 import { useEffect } from "react"
 import { motion, useScroll, useSpring } from "framer-motion"
-import { AuroraBackground } from "@/components/aurora-background"
-import { ParticlesBackground } from "@/components/particles-background"
 import { Navigation } from "@/components/navigation"
 import { HeroSection } from "@/components/hero-section"
 import { AboutSection } from "@/components/about-section"
@@ -27,18 +25,7 @@ export default function Home() {
   }, [])
 
   return (
-    <div className="relative flex min-h-screen flex-col bg-background">
-      <AuroraBackground />
-      <ParticlesBackground
-        particleCount={50}
-        particleColor="#3b82f6"
-        minSize={0.4}
-        maxSize={1.4}
-        speed={0.18}
-        opacity={0.35}
-        connectParticles={true}
-        connectDistance={150}
-      />
+    <div className="relative flex min-h-screen flex-col bg-background selection:bg-foreground selection:text-background">
 
       <motion.div
         className="fixed top-0 left-0 right-0 z-50 h-0.5 bg-primary"

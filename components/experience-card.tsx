@@ -12,50 +12,42 @@ interface ExperienceCardProps {
 export function ExperienceCard({ experience, index }: ExperienceCardProps) {
   return (
     <motion.div
-      className="relative pl-12"
+      className="relative pl-12 pb-12 last:pb-0"
       initial={{ opacity: 0, x: -20 }}
       whileInView={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       viewport={{ once: true, margin: "-100px" }}
     >
       {/* Timeline node */}
-      <motion.div
-        className="absolute left-0 top-1.5 flex h-6 w-6 items-center justify-center rounded-full border border-primary/30 bg-background"
-        initial={{ scale: 0 }}
-        whileInView={{ scale: 1 }}
-        transition={{ duration: 0.3, delay: index * 0.1 + 0.2 }}
-        viewport={{ once: true }}
-      >
-        <div className="h-2.5 w-2.5 rounded-full bg-primary shadow-[0_0_10px_hsl(var(--primary))]" />
-      </motion.div>
+      <div className="absolute left-[-5px] top-1.5 flex h-3 w-3 items-center justify-center rounded-full bg-foreground" />
 
-      <div className="glass-card gradient-border p-6">
-        <span className="font-mono text-xs uppercase tracking-wider text-primary">{experience.date}</span>
-        <h3 className="mt-1 font-heading text-xl font-semibold">{experience.title}</h3>
+      <div className="flex flex-col gap-2">
+        <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground">{experience.date}</span>
+        <h3 className="font-heading text-xl font-medium tracking-tight">{experience.title}</h3>
 
-        <div className="mt-2 flex items-center gap-3">
+        <div className="flex items-center gap-3">
           {experience.logo && (
-            <div className="relative h-8 w-8 overflow-hidden rounded-full border border-white/10">
+            <div className="relative h-6 w-6 overflow-hidden rounded-full border border-border">
               <Image
                 src={experience.logo || "/placeholder.svg"}
                 alt={experience.company}
-                width={32}
-                height={32}
+                width={24}
+                height={24}
                 className="object-contain"
               />
             </div>
           )}
-          <p className="text-sm font-medium text-foreground/90">{experience.company}</p>
+          <p className="text-sm font-medium text-foreground">{experience.company}</p>
         </div>
 
-        <p className="mt-3 text-sm text-muted-foreground">{experience.description}</p>
+        <p className="mt-2 text-sm text-muted-foreground leading-relaxed max-w-2xl">{experience.description}</p>
 
         {experience.skills && experience.skills.length > 0 && (
           <div className="mt-4 flex flex-wrap gap-2">
             {experience.skills.map((skill, skillIndex) => (
               <span
                 key={skillIndex}
-                className="flex items-center gap-1.5 rounded-full border border-primary/15 bg-primary/5 px-2.5 py-1 font-mono text-xs text-primary/90"
+                className="flex items-center gap-1.5 border border-border px-2.5 py-1 text-xs text-foreground bg-secondary/50"
               >
                 {skill.logo && (
                   <Image
