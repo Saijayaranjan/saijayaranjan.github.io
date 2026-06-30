@@ -17,7 +17,7 @@ export function ExperienceSection() {
 
       <div className="mx-auto mt-14 max-w-3xl">
         {experiences.length > 0 ? (
-          <div className="relative space-y-8 before:absolute before:left-3 before:top-2 before:h-full before:w-px before:bg-gradient-to-b before:from-primary/40 before:via-primary/20 before:to-transparent">
+          <div className="relative space-y-8 before:absolute before:left-3 before:top-2 before:h-full before:w-px before:bg-primary/25">
             {experiences.map((experience, index) => (
               <ExperienceCard key={index} experience={experience} index={index} />
             ))}

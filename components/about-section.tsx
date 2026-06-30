@@ -52,9 +52,9 @@ export function AboutSection() {
               processing principles.
             </p>
             <p className="text-base leading-relaxed text-muted-foreground">
-              I&apos;m passionate about leveraging data to derive meaningful insights and create impactful solutions —
+              I&apos;m passionate about leveraging data to derive meaningful insights and create impactful solutions,
               with a particular focus on scalable systems. Outside academics, I love hackathons, personal projects, and
-              exploring the data-science ecosystem.
+              exploring the data science ecosystem.
             </p>
           </div>
         </motion.div>

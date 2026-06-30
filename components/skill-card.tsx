@@ -19,13 +19,13 @@ export function SkillCard({ skill, index }: SkillCardProps) {
       viewport={{ once: true, margin: "-50px" }}
       whileHover={{ y: -4 }}
     >
-      <div className="relative h-12 w-12 transition-transform duration-300 group-hover:scale-110">
+      <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white p-3 shadow-sm transition-transform duration-300 group-hover:scale-110">
         <Image
           src={skill.logo || "/placeholder.svg"}
-          alt={skill.name}
-          width={48}
-          height={48}
-          className="object-contain opacity-80 transition-opacity duration-300 group-hover:opacity-100"
+          alt={`${skill.name} logo`}
+          width={40}
+          height={40}
+          className="h-10 w-10 object-contain"
         />
       </div>
       <h3 className="text-center text-sm font-medium text-foreground/80 transition-colors group-hover:text-foreground">

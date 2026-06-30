@@ -19,9 +19,7 @@ export function SectionHeading({ eyebrow, title, description, align = "center" }
       viewport={{ once: true, margin: "-100px" }}
     >
       <span className="eyebrow">{eyebrow}</span>
-      <h2 className="section-title">
-        <span className="gradient-text">{title}</span>
-      </h2>
+      <h2 className="section-title text-foreground">{title}</h2>
       {description && (
         <p className={`section-description ${align === "left" ? "mx-0" : ""}`}>{description}</p>
       )}

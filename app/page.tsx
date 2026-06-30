@@ -41,7 +41,7 @@ export default function Home() {
       />
 
       <motion.div
-        className="fixed top-0 left-0 right-0 z-50 h-0.5 bg-gradient-to-r from-[hsl(var(--accent-cyan))] via-primary to-[hsl(var(--accent-violet))]"
+        className="fixed top-0 left-0 right-0 z-50 h-0.5 bg-primary"
         style={{ scaleX, transformOrigin: "0%" }}
       />
 

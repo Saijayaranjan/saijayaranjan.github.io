@@ -62,7 +62,7 @@ export function Navigation() {
           }`}
         >
           <Link href="/" className="font-heading text-lg font-bold tracking-tight">
-            Srikanth<span className="gradient-text">.</span>
+            Srikanth<span className="text-primary">.</span>
           </Link>
 
           <nav className="hidden items-center gap-1 md:flex">

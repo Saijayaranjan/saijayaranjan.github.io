@@ -16,10 +16,10 @@ export function Footer() {
       <div className="container flex flex-col items-center justify-between gap-6 md:flex-row">
         <div className="flex flex-col items-center gap-1 md:items-start">
           <Link href="/" className="font-heading text-xl font-bold tracking-tight">
-            Srikanth<span className="gradient-text">.</span>
+            Srikanth<span className="text-primary">.</span>
           </Link>
           <p className="font-mono text-xs text-muted-foreground">
-            © {new Date().getFullYear()} Sai Srikanth Jayaranjan — Built with Next.js &amp; Tailwind.
+            © {new Date().getFullYear()} Sai Srikanth Jayaranjan. Built with Next.js &amp; Tailwind.
           </p>
         </div>
 

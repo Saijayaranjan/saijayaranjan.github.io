@@ -11,7 +11,7 @@ export function ProjectsSection() {
       <SectionHeading
         eyebrow="// portfolio"
         title="Featured Projects"
-        description="A selection of things I've built — from academic tools to hackathon wins."
+        description="A selection of things I've built, from academic tools to hackathon wins."
       />
 
       <div className="mx-auto mt-14 max-w-6xl">

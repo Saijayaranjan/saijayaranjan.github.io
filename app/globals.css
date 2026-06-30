@@ -82,13 +82,12 @@ p {
 
   .eyebrow::before {
     content: "";
-    @apply h-px w-6 bg-gradient-to-r from-primary to-transparent;
+    @apply h-px w-6 bg-primary;
   }
 
-  /* Gradient display text */
+  /* Solid accent text */
   .gradient-text {
-    @apply bg-gradient-to-r from-[hsl(var(--accent-cyan))] via-primary to-[hsl(var(--accent-violet))] bg-clip-text text-transparent;
-    background-size: 200% auto;
+    color: hsl(var(--primary));
   }
 
   .section-title {
@@ -111,7 +110,7 @@ p {
 
   /* Buttons */
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-primary to-[hsl(var(--accent-cyan))] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-primary/25 transition-all duration-300 hover:shadow-primary/40 hover:brightness-110;
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-primary/25 transition-all duration-300 hover:bg-primary/90 hover:shadow-primary/40;
   }
 
   .btn-outline {
@@ -133,7 +132,7 @@ p {
   @apply pointer-events-none absolute rounded-full blur-[100px];
 }
 
-/* Gradient border utility (mask trick) */
+/* Accent border highlight on hover (solid color) */
 .gradient-border {
   position: relative;
 }
@@ -143,12 +142,7 @@ p {
   inset: 0;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(
-    135deg,
-    hsl(var(--accent-cyan) / 0.5),
-    hsl(var(--primary) / 0.3),
-    hsl(var(--accent-violet) / 0.5)
-  );
+  background: hsl(var(--primary) / 0.45);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -173,11 +167,11 @@ p {
   background: hsl(var(--background));
 }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(hsl(var(--primary) / 0.5), hsl(var(--accent-violet) / 0.5));
+  background: hsl(var(--primary) / 0.5);
   border-radius: 999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(hsl(var(--primary) / 0.8), hsl(var(--accent-violet) / 0.8));
+  background: hsl(var(--primary) / 0.8);
 }
 
 ::selection {

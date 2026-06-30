@@ -70,7 +70,7 @@ export function HeroSection() {
             >
               Sai Srikanth
               <br />
-              <span className="gradient-text animate-gradient-x">Jayaranjan</span>
+              <span className="text-primary">Jayaranjan</span>
             </motion.h1>
 
             <motion.div
@@ -100,8 +100,8 @@ export function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
             >
-              Computer Science student at SRM Institute of Science and Technology, specializing in Big Data Analysis —
-              turning raw data into meaningful, scalable solutions.
+              Computer Science student at SRM Institute of Science and Technology, specializing in Big Data Analysis.
+              I turn raw data into meaningful, scalable solutions.
             </motion.p>
           </div>
 
@@ -142,7 +142,7 @@ export function HeroSection() {
           >
             {stats.map((stat) => (
               <div key={stat.label}>
-                <div className="font-heading text-3xl font-bold gradient-text">{stat.value}</div>
+                <div className="font-heading text-3xl font-bold text-primary">{stat.value}</div>
                 <div className="mt-1 font-mono text-xs uppercase tracking-wider text-muted-foreground">
                   {stat.label}
                 </div>
