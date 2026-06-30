@@ -1,58 +1,48 @@
 "use client"
 
 import Link from "next/link"
-import { Github, Linkedin, Mail } from "lucide-react"
+import { Github, Linkedin, Mail, Instagram, ArrowUp } from "lucide-react"
+
+const socials = [
+  { href: "https://github.com/Saijayaranjan", label: "GitHub", icon: Github },
+  { href: "https://www.linkedin.com/in/saijayaranjan/", label: "LinkedIn", icon: Linkedin },
+  { href: "https://instagram.com/saijayaranjan", label: "Instagram", icon: Instagram },
+  { href: "mailto:Saijayaranjan@icloud.com", label: "Email", icon: Mail },
+]
 
 export function Footer() {
   return (
-    <footer className="border-t border-border/40 py-8 mt-16">
-      <div className="container flex flex-col md:flex-row items-center justify-between gap-6">
-        <div className="flex flex-col items-center md:items-start gap-2">
-          <Link href="/" className="font-bold text-xl text-glow-white">
-            Srikanth<span className="text-primary">.</span>
+    <footer className="relative mt-16 border-t border-white/[0.06] py-10">
+      <div className="container flex flex-col items-center justify-between gap-6 md:flex-row">
+        <div className="flex flex-col items-center gap-1 md:items-start">
+          <Link href="/" className="font-heading text-xl font-bold tracking-tight">
+            Srikanth<span className="gradient-text">.</span>
           </Link>
-          <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Sai Srikanth Jayaranjan. All rights reserved.
+          <p className="font-mono text-xs text-muted-foreground">
+            © {new Date().getFullYear()} Sai Srikanth Jayaranjan — Built with Next.js &amp; Tailwind.
           </p>
         </div>
 
-        <div className="flex flex-col items-center md:items-end gap-4">
-          <div className="flex gap-4">
-            <Link href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-              Privacy Policy
-            </Link>
-            <Link href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-              Terms of Service
-            </Link>
-          </div>
-
-          <div className="flex gap-4">
+        <div className="flex items-center gap-3">
+          {socials.map((s) => (
             <Link
-              href="https://github.com/Saijayaranjan"
-              target="_blank"
+              key={s.label}
+              href={s.href}
+              target={s.href.startsWith("http") ? "_blank" : undefined}
               rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors"
-              aria-label="GitHub"
+              className="icon-btn"
+              aria-label={s.label}
             >
-              <Github className="h-5 w-5" />
+              <s.icon className="h-4 w-4" />
             </Link>
-            <Link
-              href="https://www.linkedin.com/in/saijayaranjan/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors"
-              aria-label="LinkedIn"
-            >
-              <Linkedin className="h-5 w-5" />
-            </Link>
-            <Link
-              href="mailto:Saijayaranjan@icloud.com"
-              className="text-muted-foreground hover:text-primary transition-colors"
-              aria-label="Email"
-            >
-              <Mail className="h-5 w-5" />
-            </Link>
-          </div>
+          ))}
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="icon-btn"
+            aria-label="Back to top"
+          >
+            <ArrowUp className="h-4 w-4" />
+          </button>
         </div>
       </div>
     </footer>

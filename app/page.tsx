@@ -2,8 +2,8 @@
 
 import { useEffect } from "react"
 import { motion, useScroll, useSpring } from "framer-motion"
+import { AuroraBackground } from "@/components/aurora-background"
 import { ParticlesBackground } from "@/components/particles-background"
-import { GridBackground } from "@/components/grid-background"
 import { Navigation } from "@/components/navigation"
 import { HeroSection } from "@/components/hero-section"
 import { AboutSection } from "@/components/about-section"
@@ -27,21 +27,21 @@ export default function Home() {
   }, [])
 
   return (
-    <div className="flex min-h-screen flex-col bg-[#0a0a14]">
-      <GridBackground />
+    <div className="relative flex min-h-screen flex-col bg-background">
+      <AuroraBackground />
       <ParticlesBackground
-        particleCount={60}
+        particleCount={50}
         particleColor="#3b82f6"
-        minSize={0.5}
-        maxSize={1.5}
-        speed={0.2}
-        opacity={0.4}
+        minSize={0.4}
+        maxSize={1.4}
+        speed={0.18}
+        opacity={0.35}
         connectParticles={true}
-        connectDistance={160}
+        connectDistance={150}
       />
 
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-primary z-50"
+        className="fixed top-0 left-0 right-0 z-50 h-0.5 bg-gradient-to-r from-[hsl(var(--accent-cyan))] via-primary to-[hsl(var(--accent-violet))]"
         style={{ scaleX, transformOrigin: "0%" }}
       />
 

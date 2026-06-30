@@ -1,132 +1,158 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { useEffect, useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
 import { ArrowRight, Github, Linkedin, Mail } from "lucide-react"
 import { smoothScrollTo } from "@/lib/smooth-scroll"
 import { ProfileCard } from "@/components/profile-card"
 
+const roles = ["Big Data Analyst", "Full-Stack Developer", "Hackathon Builder", "CS Undergraduate"]
+
+const stats = [
+  { value: "2028", label: "Graduating" },
+  { value: "3+", label: "Projects shipped" },
+  { value: "5+", label: "Technologies" },
+]
+
+const socials = [
+  { href: "https://github.com/Saijayaranjan", label: "GitHub", icon: Github },
+  { href: "https://www.linkedin.com/in/saijayaranjan/", label: "LinkedIn", icon: Linkedin },
+  { href: "mailto:Saijayaranjan@icloud.com", label: "Email", icon: Mail },
+]
+
 export function HeroSection() {
+  const [roleIndex, setRoleIndex] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => setRoleIndex((i) => (i + 1) % roles.length), 2600)
+    return () => clearInterval(interval)
+  }, [])
+
   return (
-    <section className="container py-20 md:py-32 lg:py-40">
-      <div className="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-12 items-center">
+    <section className="container relative flex min-h-screen items-center py-28 md:py-32">
+      <div className="grid w-full grid-cols-1 items-center gap-12 lg:grid-cols-[1fr_400px]">
         <motion.div
           className="space-y-8"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
         >
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5"
+          >
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+            </span>
+            <span className="font-mono text-xs tracking-wide text-foreground/80">
+              Open to internships &amp; collaborations
+            </span>
+          </motion.div>
+
           <div className="space-y-4">
-            <motion.div
+            <motion.p
+              className="eyebrow"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <Badge className="px-3 py-1 text-sm font-medium bg-primary/10 text-primary border-primary/20 mb-4">
-                Computer Science Student
-              </Badge>
-            </motion.div>
+              Hello, I&apos;m
+            </motion.p>
             <motion.h1
-              className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl text-glow-blue"
+              className="font-heading text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl md:text-7xl"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
             >
-              Sai Srikanth Jayaranjan
+              Sai Srikanth
+              <br />
+              <span className="gradient-text animate-gradient-x">Jayaranjan</span>
             </motion.h1>
-            <motion.p
-              className="max-w-[600px] text-lg text-muted-foreground"
+
+            <motion.div
+              className="flex h-9 items-center gap-3 text-xl font-medium text-foreground/90 sm:text-2xl"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
-              Computer Science student at SRM Institute of Science and Technology, specializing in Big Data Analysis and
-              graduating in 2028.
+              <span className="font-mono text-primary">&gt;</span>
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={roleIndex}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -12 }}
+                  transition={{ duration: 0.35 }}
+                  className="font-mono"
+                >
+                  {roles[roleIndex]}
+                </motion.span>
+              </AnimatePresence>
+            </motion.div>
+
+            <motion.p
+              className="max-w-xl text-base text-muted-foreground sm:text-lg"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+            >
+              Computer Science student at SRM Institute of Science and Technology, specializing in Big Data Analysis —
+              turning raw data into meaningful, scalable solutions.
             </motion.p>
           </div>
+
           <motion.div
-            className="flex flex-col sm:flex-row gap-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-          >
-            <Button
-              size="lg"
-              className="professional-button professional-button-primary"
-              onClick={() => smoothScrollTo("projects")}
-            >
-              View Projects
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              className="professional-button professional-button-outline"
-              onClick={() => smoothScrollTo("contact")}
-            >
-              Contact Me
-            </Button>
-          </motion.div>
-          <motion.div
-            className="flex gap-6"
+            className="flex flex-col gap-4 sm:flex-row sm:items-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.6 }}
           >
-            <Link
-              href="https://github.com/Saijayaranjan"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors"
-              aria-label="GitHub"
-            >
-              <Github className="h-5 w-5" />
-            </Link>
-            <Link
-              href="https://instagram.com/saijayaranjan"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors"
-              aria-label="Instagram"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="h-5 w-5"
-              >
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-              </svg>
-            </Link>
-            <Link
-              href="https://www.linkedin.com/in/saijayaranjan/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors"
-              aria-label="LinkedIn"
-            >
-              <Linkedin className="h-5 w-5" />
-            </Link>
-            <Link
-              href="mailto:Saijayaranjan@icloud.com"
-              className="text-muted-foreground hover:text-primary transition-colors"
-              aria-label="Email"
-            >
-              <Mail className="h-5 w-5" />
-            </Link>
+            <button onClick={() => smoothScrollTo("projects")} className="btn-primary group">
+              View Projects
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </button>
+            <button onClick={() => smoothScrollTo("contact")} className="btn-outline">
+              Get in Touch
+            </button>
+            <div className="flex gap-2 sm:ml-2">
+              {socials.map((s) => (
+                <Link
+                  key={s.label}
+                  href={s.href}
+                  target={s.href.startsWith("http") ? "_blank" : undefined}
+                  rel="noopener noreferrer"
+                  className="icon-btn"
+                  aria-label={s.label}
+                >
+                  <s.icon className="h-4 w-4" />
+                </Link>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="flex flex-wrap gap-8 border-t border-white/[0.06] pt-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.7 }}
+          >
+            {stats.map((stat) => (
+              <div key={stat.label}>
+                <div className="font-heading text-3xl font-bold gradient-text">{stat.value}</div>
+                <div className="mt-1 font-mono text-xs uppercase tracking-wider text-muted-foreground">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
           </motion.div>
         </motion.div>
 
         <motion.div
-          className="hidden lg:block h-[500px]"
+          className="hidden h-[500px] lg:block"
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
@@ -141,9 +167,7 @@ export function HeroSection() {
             showUserInfo={true}
             enableTilt={true}
             subtle={true}
-            onContactClick={() => {
-              smoothScrollTo("contact")
-            }}
+            onContactClick={() => smoothScrollTo("contact")}
           />
         </motion.div>
       </div>

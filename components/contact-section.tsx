@@ -2,160 +2,114 @@
 
 import { motion } from "framer-motion"
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Github, Linkedin, Mail } from "lucide-react"
+import { Github, Linkedin, Mail, Instagram, Send } from "lucide-react"
+import { SectionHeading } from "@/components/section-heading"
+
+const contacts = [
+  {
+    icon: Mail,
+    label: "Email",
+    value: "Saijayaranjan@icloud.com",
+    href: "mailto:Saijayaranjan@icloud.com",
+  },
+  {
+    icon: Linkedin,
+    label: "LinkedIn",
+    value: "linkedin.com/in/saijayaranjan",
+    href: "https://www.linkedin.com/in/saijayaranjan/",
+  },
+  {
+    icon: Github,
+    label: "GitHub",
+    value: "github.com/Saijayaranjan",
+    href: "https://github.com/Saijayaranjan",
+  },
+  {
+    icon: Instagram,
+    label: "Instagram",
+    value: "instagram.com/saijayaranjan",
+    href: "https://instagram.com/saijayaranjan",
+  },
+]
+
+const inputClass =
+  "w-full rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/70 outline-none transition-all focus:border-primary/50 focus:bg-white/[0.05] focus:ring-2 focus:ring-primary/20"
 
 export function ContactSection() {
   return (
     <section id="contact" className="section-container">
-      <motion.div
-        className="mx-auto flex max-w-[58rem] flex-col items-center justify-center gap-4 text-center"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ once: true, margin: "-100px" }}
-      >
-        <h2 className="section-title">Get in Touch</h2>
-        <p className="section-description">Feel free to reach out for collaborations or just a friendly hello.</p>
-      </motion.div>
+      <SectionHeading
+        eyebrow="// contact"
+        title="Get in Touch"
+        description="Have a project in mind or just want to say hello? My inbox is always open."
+      />
 
-      <motion.div
-        className="mx-auto grid max-w-4xl gap-10 md:grid-cols-2 md:gap-16 lg:gap-20 mt-12"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-        viewport={{ once: true, margin: "-100px" }}
-      >
-        <div className="space-y-6">
-          <h3 className="text-2xl font-semibold mb-4">Contact Information</h3>
-          <motion.div
-            className="flex items-center gap-3 group"
-            whileHover={{ x: 5 }}
-            transition={{ type: "spring", stiffness: 400, damping: 10 }}
-          >
-            <div className="p-3 rounded-full bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors">
-              <Mail className="h-5 w-5" />
-            </div>
-            <Link href="mailto:Saijayaranjan@icloud.com" className="hover:text-primary transition-colors">
-              Saijayaranjan@icloud.com
-            </Link>
-          </motion.div>
-          <motion.div
-            className="flex items-center gap-3 group"
-            whileHover={{ x: 5 }}
-            transition={{ type: "spring", stiffness: 400, damping: 10 }}
-          >
-            <div className="p-3 rounded-full bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors">
-              <Linkedin className="h-5 w-5" />
-            </div>
+      <div className="mx-auto mt-14 grid max-w-5xl gap-6 lg:grid-cols-2">
+        {/* Contact info */}
+        <motion.div
+          className="flex flex-col gap-4"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true, margin: "-80px" }}
+        >
+          {contacts.map((c) => (
             <Link
-              href="https://www.linkedin.com/in/saijayaranjan/"
-              target="_blank"
+              key={c.label}
+              href={c.href}
+              target={c.href.startsWith("http") ? "_blank" : undefined}
               rel="noopener noreferrer"
-              className="hover:text-primary transition-colors"
+              className="glass-card gradient-border group flex items-center gap-4 p-5"
             >
-              linkedin.com/in/saijayaranjan
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary/20">
+                <c.icon className="h-5 w-5" />
+              </div>
+              <div className="min-w-0">
+                <p className="font-mono text-xs uppercase tracking-wider text-muted-foreground">{c.label}</p>
+                <p className="truncate text-sm font-medium text-foreground/90 transition-colors group-hover:text-primary">
+                  {c.value}
+                </p>
+              </div>
             </Link>
-          </motion.div>
-          <motion.div
-            className="flex items-center gap-3 group"
-            whileHover={{ x: 5 }}
-            transition={{ type: "spring", stiffness: 400, damping: 10 }}
-          >
-            <div className="p-3 rounded-full bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors">
-              <Github className="h-5 w-5" />
-            </div>
-            <Link
-              href="https://github.com/Saijayaranjan"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-primary transition-colors"
-            >
-              github.com/Saijayaranjan
-            </Link>
-          </motion.div>
-          <motion.div
-            className="flex items-center gap-3 group"
-            whileHover={{ x: 5 }}
-            transition={{ type: "spring", stiffness: 400, damping: 10 }}
-          >
-            <div className="p-3 rounded-full bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="h-5 w-5"
-              >
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-              </svg>
-            </div>
-            <Link
-              href="https://instagram.com/saijayaranjan"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-primary transition-colors"
-            >
-              instagram.com/saijayaranjan
-            </Link>
-          </motion.div>
-        </div>
+          ))}
+        </motion.div>
 
+        {/* Form */}
         <motion.form
-          className="space-y-5 p-6 rounded-lg border-0 bg-transparent hover:border hover:border-border/50 hover:bg-card/50 hover:backdrop-blur-sm transition-all duration-300"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          viewport={{ once: true }}
+          className="glass-card gradient-border flex flex-col gap-4 p-6 sm:p-8"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          viewport={{ once: true, margin: "-80px" }}
         >
           <div className="grid gap-2">
-            <label
-              htmlFor="name"
-              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-            >
+            <label htmlFor="name" className="text-sm font-medium">
               Name
             </label>
-            <input
-              id="name"
-              className="flex h-10 w-full rounded-md border border-input bg-background/50 px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-              placeholder="Your name"
-            />
+            <input id="name" className={inputClass} placeholder="Your name" />
           </div>
           <div className="grid gap-2">
-            <label
-              htmlFor="email"
-              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-            >
+            <label htmlFor="email" className="text-sm font-medium">
               Email
             </label>
-            <input
-              id="email"
-              type="email"
-              className="flex h-10 w-full rounded-md border border-input bg-background/50 px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-              placeholder="Your email"
-            />
+            <input id="email" type="email" className={inputClass} placeholder="you@example.com" />
           </div>
           <div className="grid gap-2">
-            <label
-              htmlFor="message"
-              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-            >
+            <label htmlFor="message" className="text-sm font-medium">
               Message
             </label>
             <textarea
               id="message"
-              className="flex min-h-[120px] w-full rounded-md border border-input bg-background/50 px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-              placeholder="Your message"
+              className={`${inputClass} min-h-[130px] resize-none`}
+              placeholder="Tell me about your idea..."
             />
           </div>
-          <Button className="w-full professional-button professional-button-primary">Send Message</Button>
+          <button type="submit" className="btn-primary mt-2 w-full">
+            Send Message
+            <Send className="h-4 w-4" />
+          </button>
         </motion.form>
-      </motion.div>
+      </div>
     </section>
   )
 }
